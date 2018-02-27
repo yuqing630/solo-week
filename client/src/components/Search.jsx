@@ -6,7 +6,7 @@ class Search extends React.Component {
     super(props)
     this.state = {
       location: '',
-      data: {}
+      data: []
 
     }
     this.handleSearch = this.handleSearch.bind(this)
@@ -22,11 +22,12 @@ class Search extends React.Component {
             location: this.state.location
   }})
   .then((response) => {
+    console.log('this', response.data)
     this.setState({
       data: response.data
     })
-  }).catch((response) =>{
-    console.log(err)
+  }).catch((err) =>{
+    console.log("cant get data from server")
   })
   this.setState({
     location: ''
@@ -37,7 +38,7 @@ class Search extends React.Component {
     return(
       <div> Search Location:
       <input type='text' value = {this.state.location} placeholder='location' onChange={(e)=>{this.handleLocation(e)}}></input>
-      <button onClick={()=> {this.handleSearch}}>Search</button>
+      <button onClick={()=> {this.handleSearch()}}>Search</button>
       </div>
     )
   }
