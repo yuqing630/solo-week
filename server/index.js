@@ -5,7 +5,12 @@ const db = require('../database')
 
 const app = express();
 
-app.use(express.static(_dirname + '/../client/dist'));
+app.use(express.static(__dirname + '/../client/dist'));
+app.use(bodyParser.json())
+
+app.get('/apiGet', function(req,res){
+  console.log('server connected')
+})
 
 
 

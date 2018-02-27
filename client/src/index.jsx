@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
-
+import axios from 'axios';
+import Search from './components/Search.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -9,11 +10,11 @@ class App extends React.Component {
     this.state = {}
   }
 
-  
+
   render(){
     return(
       <div>
-
+      <Search />
 
       </div>
     )
