@@ -6,7 +6,17 @@ class Search extends React.Component {
     super(props)
     this.state = {
       location: '',
-      data: []
+      data: {
+        currently: {
+          temperture: ''
+        },
+        hourly: {
+          summary: ''
+        },
+        daily: {
+          summary: ''
+        }
+      }
 
     }
     this.handleSearch = this.handleSearch.bind(this)
@@ -39,6 +49,9 @@ class Search extends React.Component {
       <div> Search Location:
       <input type='text' value = {this.state.location} placeholder='location' onChange={(e)=>{this.handleLocation(e)}}></input>
       <button onClick={()=> {this.handleSearch()}}>Search</button>
+
+      <Weather data={this.state.data} />
+
       </div>
     )
   }
