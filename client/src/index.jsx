@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 import $ from 'jquery';
 import axios from 'axios';
 import Search from './components/Search.jsx';
-import Weather From './components/Weather.jsx'
+import Weather from './components/Weather.jsx'
 
 class App extends React.Component {
   constructor(props) {

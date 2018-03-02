@@ -7,11 +7,15 @@ class Weather extends React.Component {
 
   }
   render(){
+
     return(
       <div>
-      {this.props.data.currently.temperture}
-      {this.props.data.hourly.summary}
-      {this.props.data.daily.summary}
+      <ul>Current temp: {this.props.data.currently.temperature}&#176;F</ul>
+
+      <ul>Daily Summary: {this.props.data.hourly.summary}</ul>
+      <ul>Forecast: {this.props.data.daily.summary}</ul>
+
+
       </div>
     )
   }
