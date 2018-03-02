@@ -4,7 +4,7 @@ CREATE DATABASE weather;
 
 USE weather;
 
-CREATE TABLE currentTemp (
+CREATE TABLE favorite (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(50),
   latitude DECIMAL (11, 8),

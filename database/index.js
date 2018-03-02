@@ -3,8 +3,8 @@ const mysql = require('mysql');
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
-  password: 'plantlife',
+  user: 'student',
+  password: 'student',
   database: 'weather'
 });
 
@@ -15,3 +15,5 @@ connection.connect((err) => {
     console.log('database connected')
   }
 })
+
+module.exports = connection;

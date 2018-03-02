@@ -25,6 +25,9 @@ class Search extends React.Component {
     this.handleSearch = this.handleSearch.bind(this)
     this.handleLocation = this.handleLocation.bind(this)
     this.handleZipCode = this.handleZipCode.bind(this)
+    this.addFavorite = this.addFavorite.bind(this)
+    this.favorite = this.favorite.bind(this)
+
   }
 
   handleLocation(e){
@@ -74,17 +77,43 @@ class Search extends React.Component {
       zipcode: ''
     })
   }
+  addFavorite(){
+    // console.log('click')
+    axios.post('/add', {
+      data: this.state.data
+    })
+    .then((response)=>{
+      console.log('add to sever')
+    }).catch((err)=>{
+      console.log('cant save to server')
+    })
+  }
+  favorite(){
+    axios.get('/getFav')
+    .then((response)=>{
+      console.log(response.data)
+      this.setState({
+        data: response.data
+      })
+    }).catch((err)=>{
+      console.log('err getting from server')
+    })
+  }
+
 
   render(){
     return(
-      <div> Search by location:
+      <div>
+      <button onClick={()=> {this.favorite()}}>favorite</button>
+      <div>Search by location:
       <input type='text' value = {this.state.location} placeholder='location' onChange={(e)=>{this.handleLocation(e)}}></input>
       <button onClick={()=> {this.handleSearch()}}>Search</button>
       <div> Search by zipcode:
       <input type='number' value = {this.state.zipcode} placeholder='zipcode' onChange={(e)=>{this.handleZipCode(e)}}></input>
       <button onClick={()=> {this.handleSearchZipCode()}}>Search</button>
       </div>
-      <Weather data={this.state.data} />
+      </div>
+      <Weather data={this.state.data} addFavorite = {this.addFavorite}/>
 
       </div>
     )

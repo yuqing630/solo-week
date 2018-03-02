@@ -14,6 +14,7 @@ class Weather extends React.Component {
 
       <ul>Daily Summary: {this.props.data.hourly.summary}</ul>
       <ul>Forecast: {this.props.data.daily.summary}</ul>
+      <button onClick={()=> {this.props.addFavorite()}}>Like</button>
 
 
       </div>
