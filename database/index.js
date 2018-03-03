@@ -1,11 +1,12 @@
 const mysql = require('mysql');
-
+const config = require('../confiq.js')
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'student',
-  password: 'student',
-  database: 'weather'
+  host: config.host,
+  user: config.user,
+  password: config.password,
+  port: config.port,
+  database: config.database
 });
 
 connection.connect((err) => {
@@ -13,6 +14,19 @@ connection.connect((err) => {
     console.log;
   } else {
     console.log('database connected')
+  }
+})
+
+connection.query(`CREATE TABLE IF NOT EXISTS favorite (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50),
+  latitude DECIMAL (11, 8),
+  longitude DECIMAL (11, 8),
+  temp INT,
+  PRIMARY KEY (id)
+);`, (err, results)=>{
+  if (err){
+    console.log(err)
   }
 })
 
