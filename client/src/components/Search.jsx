@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import Weather from './Weather.jsx'
+import Weather from './Weather.jsx';
+import Forecast from './Forecast.jsx';
+
 
 class Search extends React.Component {
   constructor(props) {
@@ -16,7 +18,7 @@ class Search extends React.Component {
           summary: ''
         },
         daily: {
-          temp: [],
+          data: [],
           summary: ''
         }
       }
@@ -113,7 +115,13 @@ class Search extends React.Component {
       <button onClick={()=> {this.handleSearchZipCode()}}>Search</button>
       </div>
       </div>
+
       <Weather data={this.state.data} addFavorite = {this.addFavorite}/>
+      <div>
+      <Forecast data={this.state.data}/>
+      </div>
+
+
 
       </div>
     )
