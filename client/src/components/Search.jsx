@@ -93,7 +93,7 @@ class Search extends React.Component {
   favorite(){
     axios.get('/getFav')
     .then((response)=>{
-      console.log(response.data)
+      // console.log(response.data)
       this.setState({
         data: response.data
       })
