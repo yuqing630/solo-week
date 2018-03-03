@@ -23,7 +23,7 @@ app.get('/apiZip', function(req,res){
     let weatherUrl = 'https://api.darksky.net/forecast';
     let weatherApiKey = config.weatherApiKey;
     let weatherApiUrl = weatherUrl + '/' + weatherApiKey + '/' + lat + ',' + lon;
-    console.log(weatherApiUrl)
+    // console.log(weatherApiUrl)
     axios.get(weatherApiUrl)
     .then((response2)=>{
       res.send(response2.data)
@@ -81,8 +81,8 @@ app.get('/getFav', function(req,res){
     // console.log(lon , lat)
     axios.get(weatherApiUrl)
       .then((response)=>{
-        console.log('in here now')
-        console.log(response)
+        // console.log('in here now')
+        // console.log(response)
         res.send(response.data)
     }).catch((err)=>{
         // console.log(weatherApiUrl)
