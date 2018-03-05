@@ -92,7 +92,7 @@ app.get('/getFav', function(req,res){
   })
 })
 
-const port = process.env.PORT || 3000;
-app.listen(port, function(){
+const port = 3000;
+app.listen(3000, function(){
   console.log(`listening to port ${port}`)
 })

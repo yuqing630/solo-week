@@ -15,6 +15,7 @@ class Search extends React.Component {
           temperature: ''
         },
         hourly: {
+          data: [],
           summary: ''
         },
         daily: {
